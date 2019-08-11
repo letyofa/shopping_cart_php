@@ -23,6 +23,7 @@ if (isset($_POST["btnOK"]))
 		$testAccoutResult=$testAccout->fetch(PDO::FETCH_NUM);
         if($testAccoutResult[1]==$sUserName && $testAccoutResult[2]==$sUserPass)
         {
+			$_SESSION["uid"]=$testAccoutResult[0];
             $_SESSION['userName'] = $testAccoutResult[1];
             echo "<script language='javascript'>alert('登入成功 ! ');location.href='index.php';</script>";
         }else{
